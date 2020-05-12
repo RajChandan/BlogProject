@@ -1,0 +1,53 @@
+.container
+{
+	width: 60%;
+	float: left;
+	padding: 0 0 0 30px;
+	
+	height: 100%;
+
+}
+.sidebar
+{
+	width: 40%;
+	float: right;
+	padding:20px;
+	background-color: burlywood;
+	height: 100%;
+}
+
+h1
+{
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+body
+{
+	color: whitesmoke;
+	background-color: darkgray;
+}
+
+#date
+{
+	color:whitesmoke;
+	font-size: 14px;
+	font-style: italic;
+}
+
+a
+{
+	color: chartreuse;
+}
+
+.tagbox
+{
+	border:1px solid orange;
+}
+
+#pcount
+{
+	font-size: 40px;
+	color: red;
+	font-weight: bold;
+}

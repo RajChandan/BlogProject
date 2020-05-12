@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% block titleblock%}Home Page{% endblock %}
+
+{% block content %}
+
+<h1>{{post.title}}</h1>
+<hr>
+<p id="date">Published on {{post.publish}} by {{post.author}}</p>
+{{post.body|linebreaks}}
+<br>
+<hr>
+<br>
+<div align="center">
+<a href="/{{post.id}}/share" class="btn btn-primary btn-large">Share Post by email</a>
+</div>
+<br>
+{% with comments.count as comment_count %}
+<h2>{{comment_count}} comment{{comment_count|pluralize}}</h2>
+{% endwith %}
+
+{% if comments %}
+{% for comment in comments%}
+<p>comment {{forloop.counter}} by {{comment.name}} on {{comment.created}}</p>
+<div class="cb">
+	{{comment.body|linebreaks}}
+</div>
+<hr>
+{% endfor %}
+{% else %}
+<p>No Comments</p>
+{% endif %}
+
+{% if csubmit %}
+<h2>Your comment is submitted sucessfully. </h2>
+{% else %}
+<form method="POST">
+	{{form.as_p}}
+	{%csrf_token%}
+	<input type="submit" value="Submit Comment" class="btn  btn-large btn-success">
+</form>
+{%endif%}
+
+{% endblock%} 
